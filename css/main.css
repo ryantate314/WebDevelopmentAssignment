@@ -1,0 +1,75 @@
+
+body {
+	font-family: Arial, sans-serif;
+	
+	background-color: black;
+	color: lightgray;
+	overflow-x: hidden;
+}
+
+a {
+	text-decoration: none;
+}
+
+input {
+	max-width: 380px;
+}
+
+hr {
+	border-color: #333;
+}
+
+footer {
+	color: gray;
+	
+}
+
+@media (min-width: 768px) {
+	.photo-article img:hover {
+		width: 105%;
+		transition: width 0.25s;
+	}
+}
+
+
+
+/* Nav Bar 
+***********************/
+
+.navbar .navbar-right a {
+	margin-right: 15px;
+}
+
+.navbar-inverse {
+	background-color: #464646;
+}
+
+.navbar-inverse a {
+	color: lightgray;
+}
+
+/* end navbar */
+
+.photo-article img {
+	width: 100%;
+	transition: width 0.25s;
+}
+
+.form-control {
+	background-color: #333;
+	color: lightgray;
+}
+
+/*input[type="file"].form-control {
+	background-color: inherit;
+	border-style: inherit;
+}*/
+
+.btn-default {
+	transition: background-color 0.5s;
+}
+
+.btn-default:hover {
+	transition: background-color 0.5s;
+}
+

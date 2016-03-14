@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Picture Site | Upload</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/validator.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse">
+			<ul class="nav navbar-nav navbar-left">
+				<li><a href="home.html">Home</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="login.html">Login</a></li>
+			</ul>
+		</nav>
+		<div class="container">
+			<div class="header">
+				<h1>Photo Sharing Site</h1>
+			</div>
+			<form action="home.html" method="POST" id="uploadForm">
+				<div class="form-group">
+					<label for="photoTitle">Photo Title:</label>
+					<input type="text" name="photoTitle" id="photoTitle" placeholder="Sleepy Kitty" class="form-control" data-regex="^[a-zA-Z0-9]{3,}$" data-validate-message="Title must be at least 3 characters long and alphanumeric.">
+				</div>
+				<div class="form-group">
+					<input type="file" name="file" id="file" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label for="photoDescription">Photo Caption</label>
+					<textarea name="photoDescription" id="photoDescription" rows="10" cols="80" class="form-control" style="resize: vertical;" required></textarea>
+				</div>
+				<input type="submit" value="Upload" class="btn btn-default">
+				<button type="button" onclick="window.location.href='home.html'" class="btn btn-link">Cancel</button>
+			</form>
+			<footer>
+				<hr />
+				<p>Ryan Tate - Designed for CSC 3100</p>
+			</footer>
+		</div><!--container-->
+		<script src="js/validator.js"></script>
+		<script>
+			document.body.onload = function(){
+				validator.validate(document.getElementById("uploadForm"));
+			};
+		</script>
+	</body>
+</html>

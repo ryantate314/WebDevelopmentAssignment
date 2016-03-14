@@ -1,0 +1,14 @@
+.form-control {
+	transition: border-color 0.25s;
+}
+
+.form-control.validator-invalid {
+	border-color: red;
+	transition: border-color 0.25s;
+}
+
+.validator-notification {
+	color: red;
+	font-style: italic;
+	padding-top: 0.5em;
+}
