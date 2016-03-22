@@ -18,7 +18,7 @@ if (typeof validator == "undefined") {
 		_filters : [
 			//Required Field Filter
 			function(inputField) {
-				var formattedName = validator._convertCamelCase(inputField.name);
+				var formattedName = validator._getReadableName(inputField);
 				if (inputField.required && inputField.value == "") {
 					return formattedName + " is required.";
 				}
@@ -27,7 +27,7 @@ if (typeof validator == "undefined") {
 			//Email Address Filter
 			function(inputField) {
 				if (inputField.type == "email") {
-					var formattedName = validator._convertCamelCase(inputField.name);
+					var formattedName = validator._getReadableName(inputField);
 					if (!/^[a-zA-Z0-9\.]{2,}@([a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,5})+$/.test(inputField.value)) {
 						return "Invalid email address.";
 					}
@@ -39,7 +39,7 @@ if (typeof validator == "undefined") {
 			//The user can also display a custom error message with the attribute name data-validate-message
 			function(inputField) {
 				if (inputField.dataset.regex) {
-					var formattedName = validator._convertCamelCase(inputField.name);
+					var formattedName = validator._getReadableName(inputField);
 					var regex = new RegExp(inputField.dataset.regex);
 					if (!regex.test(inputField.value)) {
 						//See if the node has a custom error message
@@ -96,6 +96,21 @@ if (typeof validator == "undefined") {
 				if (validated !== true) return validated;
 			}
 			return true;
+		},
+		
+		_getReadableName : function(input) {
+			//Find the label for the provided input
+			var labels = document.getElementsByTagName("label");
+			var labelId = input.id;
+			for (var i = 0; i < labels.length; i++) {
+				if (labels[i].getAttribute("for") == labelId) {
+					var sanitizedText = labels[i].textContent.replace(":", "");
+					return sanitizedText;
+				}
+			}
+			
+			//Could not find label. Convert camel case of field
+			return validator._convertCamelCase(input.name);
 		},
 		
 		/**
