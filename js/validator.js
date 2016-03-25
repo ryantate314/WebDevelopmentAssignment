@@ -5,7 +5,6 @@
   * Possible modifications/improvements:
   *  - Allow the user to specify which filters are applied to the form, rather than all of them.
   * 
-  * TODO: Use label as field name instead of converting input name from camel case.
   * @author Ryan Tate
   * @version 2016-03-25
   */
