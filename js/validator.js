@@ -7,7 +7,7 @@
   * 
   * TODO: Use label as field name instead of converting input name from camel case.
   * @author Ryan Tate
-  * @version 2016-03-14
+  * @version 2016-03-25
   */
 
 if (typeof validator == "undefined") {
