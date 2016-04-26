@@ -1,24 +1,59 @@
-<head>
-        <title>{{#if title}}{{title}}{{else}}Photo Sharing Site{{/if}}</title>
-        {{#if showTests}}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{#if title}}{{title}}{{else}}Photo Sharing Site{{/if}}</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		{{#if showTests}}
 			<link rel="stylesheet" href="/vendor/mocha.css">
-        {{/if}}
-        <script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
-</head>
-<body>
-	{{{body}}}
-	{{#if showTests}}
-		<div id="mocha"></div>
-		<script src="/vendor/mocha.js"></script>
-		<script src="/vendor/chai.js"></script>
-		<script>
-				mocha.ui('tdd');
-				var assert = chai.assert;
-		</script>
-		<script src="/qa/tests-global.js"></script>
-		{{#if pageTestScript}}
-				<script src="{{pageTestScript}}"></script>
 		{{/if}}
-		<script>mocha.run();</script>
-	{{/if}}
-</body>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				 <div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="navbar-brand">Photo Sharing Site</div>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="/">Home</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/Account/Login">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			{{{body}}}
+			<footer>
+				<hr />
+				<p>Ryan Tate - Designed for CSC 3100</p>
+			</footer>
+		</div><!--container-->
+		<script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
+		<script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		{{#if showTests}}
+			<div id="mocha"></div>
+			<script src="/vendor/mocha.js"></script>
+			<script src="/vendor/chai.js"></script>
+			<script>
+					mocha.ui('tdd');
+					var assert = chai.assert;
+			</script>
+			<script src="/qa/tests-global.js"></script>
+			{{#if pageTestScript}}
+					<script src="{{pageTestScript}}"></script>
+			{{/if}}
+			<script>mocha.run();</script>
+		{{/if}}
+	</body>
+</html>
