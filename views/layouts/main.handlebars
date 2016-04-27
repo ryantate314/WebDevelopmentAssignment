@@ -9,6 +9,7 @@
 		{{#if showTests}}
 			<link rel="stylesheet" href="/vendor/mocha.css">
 		{{/if}}
+		<script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse">
@@ -25,6 +26,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-left">
 						<li><a href="/">Home</a></li>
+						<li><a href="/Gallery/New">Upload</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/Account/Login">Login</a></li>
@@ -33,13 +35,15 @@
 			</div>
 		</nav>
 		<div class="container">
+			{{#if error}}
+				<p class="alert alert-danger">{{error}}</p>
+			{{/if}}
 			{{{body}}}
 			<footer>
 				<hr />
 				<p>Ryan Tate - Designed for CSC 3100</p>
 			</footer>
 		</div><!--container-->
-		<script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
 		<script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 		{{#if showTests}}
 			<div id="mocha"></div>
