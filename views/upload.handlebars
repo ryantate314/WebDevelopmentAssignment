@@ -1,14 +1,14 @@
-<form action="/Gallery/" method="POST" id="uploadForm">
+<form action="/upload" enctype="multipart/form-data" method="POST" id="uploadForm">
 	<div class="form-group">
 		<label for="photoTitle">Photo Title:</label>
-		<input type="text" name="title" id="photoTitle" placeholder="Sleepy Kitty" class="form-control" data-regex="^[a-zA-Z0-9\s]{3,}$" data-validate-message="Title must be at least 3 characters long and alphanumeric." required>
+		<input type="text" name="title" id="photoTitle" placeholder="Sleepy Kitty" class="form-control" data-regex="^[a-zA-Z0-9\s]{3,}$" data-validate-message="Title must be at least 3 characters long and alphanumeric." required value="{{#if title}}{{title}}{{/if}}">
 	</div>
 	<div class="form-group">
 		<input type="file" name="file" id="file" class="form-control" required>
 	</div>
 	<div class="form-group">
 		<label for="photoDescription">Photo Caption</label>
-		<textarea name="description" id="photoDescription" rows="10" cols="80" class="form-control" style="resize: vertical;" required></textarea>
+		<textarea name="description" id="photoDescription" rows="10" cols="80" class="form-control" style="resize: vertical;" required accept="image/*">{{#if description}}{{description}}{{/if}}</textarea>
 	</div>
 	<input type="submit" value="Upload" class="btn btn-default">
 	<button type="button" onclick="window.location.href='home.html'" class="btn btn-link">Cancel</button>
